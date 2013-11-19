@@ -1,0 +1,16 @@
+{
+  "name": "igelkott-slashatlog",
+  "description": "A very simple logger plugin for Igelkott",
+  "version": "0.1.0",
+  "main": "igelkott-slashatlog.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "chai": "~1.4.2",
+    "mocha": "1.3.x",
+    "igelkott": "*"
+  },
+  "scripts": {
+    "test": "mocha -R spec --recursive"
+  }
+}
