@@ -21,10 +21,24 @@ var Slashatlog = function Slashatlog() {
 
 Slashatlog.prototype.startlog = function startlog(message) {
   this.currentState = true;
+
+  var obj = {
+    command: 'PRIVMSG',
+    parameters: [message.parameters[0], message.prefix.nick+": Och så loggar vi lite."]
+  };
+
+  this.igelkott.push(obj);
 };
 
 Slashatlog.prototype.stoplog = function stoplog(message) {
   this.currentState = false;
+
+  var obj = {
+    command: 'PRIVMSG',
+    parameters: [message.parameters[0], message.prefix.nick+": Okej då, vi glömmer väl det."]
+  };
+
+  this.igelkott.push(obj);
 };
 
 
