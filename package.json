@@ -12,5 +12,9 @@
   },
   "scripts": {
     "test": "mocha -R spec --recursive"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "http://github.com/stenehall/igelkott-slashatlog.git"
   }
 }
