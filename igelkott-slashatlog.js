@@ -22,6 +22,17 @@ var Slashatlog = function Slashatlog() {
 Slashatlog.prototype.startlog = function startlog(message) {
   this.currentState = true;
 
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1;
+
+  var yyyy = today.getFullYear();
+    dd = '0' + dd;
+  if (mm < 10) {
+    mm = '0' + mm;
+  }
+  this.date = yyyy + '-' + mm + '-' + dd;
+
   var obj = {
     command: 'PRIVMSG',
     parameters: [message.parameters[0], message.prefix.nick+": Och så loggar vi lite."]
@@ -44,22 +55,9 @@ Slashatlog.prototype.stoplog = function stoplog(message) {
 
 Slashatlog.prototype.logger = function logger(message) {
 
-  if(this.currentState)
-  {
+
     var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1;
-
-    var yyyy = today.getFullYear();
-    if(dd<10){
-      dd='0'+dd;
-    }
-    if(mm<10){
-      mm='0'+mm;
-    }
-    var date = yyyy+'-'+mm+'-'+dd;
-
-    var time = today.getHours()+':'+today.getMinutes()+':'+today.getSeconds();
+    var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
 
     var data = {
       'time' : date+" "+time,
